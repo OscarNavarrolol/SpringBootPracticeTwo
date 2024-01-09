@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Libros</title>
+    <link rel="stylesheet" type="text/css" href="/stylesFormListado.css">
+</head>
+
+<body>
+    <h1>Lista De libros</h1>
+
+    <table class="styled-table">
+        <!-- Encabezados de la tabla -->
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Titulo</th>
+            <th>Autor</th>
+            <th>Genero</th>
+            <th>Año</th>
+            <th>Estado</th>
+            <th>Accion</th>
+        </tr>
+        </thead>
+        <!-- Cuerpo de la tabla -->
+        <tbody>
+            <thead>
+            <tr th:each=" libro : ${listLibros}"> <!-- valor clave al reves del controler -->
+                <td th:text="${libro.id}"></td>
+                <td th:text="${libro.titulo}"></td>
+                <td th:text="${libro.autor}"></td>
+                <td th:text="${libro.genero}"></td>
+                <td th:text="${libro.year}"></td>
+                <td>
+                    <span th:if="${libro.estado_lib}" style="color: green;">Disponible </span>
+                    <span th:unless="${libro.estado_lib}" style="color: #e61b1b;">No Disponible</span>
+                </td>
+                <td>
+
+                        <!-- th:action="@{/personas/editar/{idUser}(idUser=${persona.idUser})}" method="get" -->
+                        <button type="submit" class="editar">Editar</button>
+
+                    <!-- th:action="@{/personas/eliminar/{idUser}(idUser=${persona.idUser})}" method="post" -->
+
+                        <button type="submit" class="eliminar">Eliminar</button>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="enlace">
+        <!-- Reemplazo del enlace por un botón -->
+        <form action="/personas/new">
+            <button type="submit" class="boton">Nuevo Libro</button>
+        </form>
+    </div>
+</body>
+</html>
