@@ -15,6 +15,6 @@ INSERT INTO libro (titulo, autor, genero, anio_publicacion, estado_disponible)
 VALUES ('La molleja', 'Mnuel', 'Drana politico', 2000, false);
 
 INSERT INTO libro (titulo, autor, genero, anio_publicacion, estado_disponible)
-VALUES ('La molleja', 'Mnuel', 'Drana politico', 2000, false);
+VALUES ('La catriosk', 'art', 'Drama', 2020, true);
 
 select * from libro;

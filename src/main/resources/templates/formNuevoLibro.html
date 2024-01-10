@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuevos libros</title>
+    <link rel="stylesheet" type="text/css" href="/stylesFormNuevoLibro.css" >
+</head>
+<body>
+    <h1>Nuevo Libro</h1>
+    <form th:object="${newlibro}" th:action="${accion}" method="post">
+        <input type="hidden" th:field="*{id}">
+        <label>Nombre : <input type="text" th:field="*{titulo}"/></label><br>
+        <label>Autor : <input type="text" th:field="*{autor}"/></label><br>
+        <label>Género : <input type="text" th:field="*{genero}" /></label><br>
+        <label>Año de publicación : <input type="number" th:field="*{year}" /></label><br>
+        <label>Estado : <input type="checkbox" th:field="*{estado_lib}"/></label><br>
+
+        <button type="submit">Guardar</button>
+    </form>
+
+    <a href="/libreria"> Volver al Inicio</a>
+
+</body>
+</html>

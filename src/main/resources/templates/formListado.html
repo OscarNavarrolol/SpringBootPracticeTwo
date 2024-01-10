@@ -10,7 +10,7 @@
     <h1>Lista De libros</h1>
 
     <table class="styled-table">
-        <!-- Encabezados de la tabla -->
+
         <thead>
         <tr>
             <th>ID</th>
@@ -22,7 +22,7 @@
             <th>Accion</th>
         </tr>
         </thead>
-        <!-- Cuerpo de la tabla -->
+
         <tbody>
             <thead>
             <tr th:each=" libro : ${listLibros}"> <!-- valor clave al reves del controler -->
@@ -37,22 +37,21 @@
                 </td>
                 <td>
 
-                        <!-- th:action="@{/personas/editar/{idUser}(idUser=${persona.idUser})}" method="get" -->
-                        <button type="submit" class="editar">Editar</button>
+                    <a th:href="@{/libreria/editarinfo/{id}(id=${libro.id})}">Edit</a>
 
-                    <!-- th:action="@{/personas/eliminar/{idUser}(idUser=${persona.idUser})}" method="post" -->
 
-                        <button type="submit" class="eliminar">Eliminar</button>
-
+                    <a th:href="@{/libreria/eliminar/{id}(id=${libro.id})}" class="eliminar">Eliminar</a>
                 </td>
+
             </tr>
         </tbody>
     </table>
     <div class="enlace">
         <!-- Reemplazo del enlace por un botón -->
-        <form action="/personas/new">
+        <form action="/libreria/nuevolibro" method="get">
             <button type="submit" class="boton">Nuevo Libro</button>
         </form>
+
     </div>
 </body>
 </html>
